@@ -1,0 +1,751 @@
+<div id="hc_richmedia">
+    <meta name="viewport" content="width=device-width">
+	<script type="text/javascript">
+		if(!window.jQuery || !window.$) {
+			document.write('\x3Cscript src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript">\x3C/script>');
+		}
+	</script>
+	<!--<script type="text/javascript" src="mraid.js"></script>-->
+	<style type="text/css">
+	body {margin: 0 auto;}
+	#hc_richmedia {
+		position:relative;
+		width:280px;
+		margin:0 auto;
+	}
+	#hc_richmedia .hc_initial_view {
+		position:relative;
+		z-index:1;
+	}
+	#hc_richmedia .hc_content {
+		position:relative;
+		width:280px;
+		text-align:center;
+		z-index:1;
+      overflow: hidden;
+	}
+	#hc_richmedia .hc_closebtn {
+		position:absolute;
+		top:5px;
+		right:5px;
+		z-index:15;
+		cursor:pointer;
+	}
+	#hc_richmedia .hc_closebtn img {
+		position:relative;
+		z-index:20;
+	}
+	#hc_richmedia .hc_content h3 {
+		margin-top:0;
+	}
+	#hc_richmedia .hc_blockimg {
+		display:block;
+	}
+	a img {border: none;}
+	
+	/* custom styles */
+        
+    @font-face {
+        font-family: 'avangid_-webfont';
+        src: url('fonts/football/40558.eot');
+        src: url('fonts/football/40558.eot?#iefix') format('embedded-opentype'),
+        url('fonts/football/40562.woff') format('woff'),
+        url('fonts/football/40560.ttf') format('truetype');
+               font-weight: normal;
+               font-style: normal;
+            }
+    #wrapper {
+        width: 280px;
+        margin: 0 auto;
+        font-family: 'avangid_-webfont', arial, sans-serif;
+        color: white;
+        position: relative;
+    }
+    h1 {
+        font-family: 'avangid_-webfont', arial, sans-serif;
+        -webkit-margin-before: -.3em;
+        -webkit-margin-after: -.3em;
+    }
+    h1 sup {
+        font-size: 40%;
+    }
+    h2 {
+        font-family: 'avangid_-webfont', arial, sans-serif;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        font-size: 120%;
+    }
+    p {
+        font-size: 90%;
+    }
+    /**HEADER**/
+    #intro {
+        width: 100%;
+        height: 110px;
+        background: #181819;
+    }
+    #intro .inner {
+        padding: .5em 3em 0 .5em;
+        text-transform: uppercase;
+        text-align: left;
+        font-size: 100%;
+    }
+    #intro .inner p {
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+    }
+    #header {
+        display: none;
+        width: 100%;
+        height: 110px;
+        background: #181819 url("images/football/46504.png");
+    }
+    #logo {
+        float: left;
+        /*width: 32%;*/
+    }
+    #logo img {
+        margin: 1em 0 .2em 1em;
+    }
+    #header.gameplay #logo img {
+        margin: 1em 0 .2em 0;
+    }
+    #tdtext {
+        margin: .3em 0 0 1em;
+        font-size: 75%;
+        color:#f7eeb9;
+    }
+    #titles {
+        text-align: center;
+        /*height: 62px;*/
+        padding-top: .8em;
+        color: #5fdfff;
+    }
+    #titles sup {
+        font-size: 35%;
+        bottom: .8em;
+        position: relative;
+    }
+    .disclaim {
+        font-size: 10%;
+        color: #505050;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+    }
+    .jackpot {
+        font-size: 65%;
+    }
+    #jackpot {
+        font-size: 140%;
+    }
+    .millions {
+        font-size: 90%;
+    }
+    /*** GAME */
+    #leaderboard {position:relative;width:900px;margin:0 auto;padding:5px 0px;height:200px;color:#006600;}
+    #score, #lives, #level, #title {position:absolute;}
+    #score {right:100px;font-size:200%;}
+    #lives {right:0px;padding-left:35px;/*background: url('images/frog_icon.png') left top no-repeat;*/font-size:200%;}
+    #level {right:100px;font-size:200%;left:420px;}
+    #title {left:0px;top:0px;font-size:250%;}
+    #websockets {position:relative;	top:500px;	width:900px;margin:0 auto;padding:5px 0px;height:40px;color:#006600;}
+    #wsurl {float:left; font-size:100%;}
+    #pincode {font-size:200%;float:left; margin-left:10px;}
+    #statusMsg {font-size:100%;float:right;width:300px; overflow:hidden;text-align:right;}
+            
+    #kaazing {position:relative; top:520px;	width:900px;margin:0 auto; padding:1px 0px;color:#000000; font-family:Arial,Helvetica,Sans-serif; background-color: #FF9933;}
+    #kmain {margin:5px; border-radius: 5px; width=100%; background-color: #FFFFFF; font-size:100%; padding:5px;}
+    img.center {   display: block;   margin-left: auto;   margin-right: auto; }
+            
+    #screen {
+        margin: 0 auto;
+        position:relative; 
+        width: 280px; 
+        /*top:50px; */
+        font-family:Times,serif;
+    }
+    #screen canvas { margin: 0px auto; display: block;}
+            
+    #fbLogin {
+        font-size:140%;display:none;position:absolute;width:300px;text-align:center;background-color:#000;}
+    #fbLogin p {color:#fff;}
+            
+    #message {
+        display:block;
+        position:absolute;
+        /*width:300px;*/
+        width:280px;
+        height:290px;
+        text-align:left;
+        font-size:200%;
+        top: 200px;
+    }
+    .tackle {
+        background:url("images/football/41020.png") no-repeat;
+    }
+    .touchdown {
+        background:url("images/football/41021.png") no-repeat;
+    }
+    .playy {
+        background:url("images/football/41022.png") no-repeat;
+    }
+    .over {
+        background:url("images/football/41023.png") no-repeat;
+    }
+    #logger {
+        position:absolute;
+        top:650px;	
+    }
+    /** Common Styles */
+
+    .leaderItem {margin-bottom:15px;clear:both;float:left;}
+    .leaderItem .rank {font-size:200%;float:left;margin-right:5px;width:30px;text-align:left;line-height:0.8;}
+    .leaderItem img {float:left;margin-right:5px;width:50px;}
+    .leaderItem .user {float:left;}
+    .leaderItem .name {width:120px;float:left;}
+    .leaderItem .score {font-size:200%;float:left;position:relative;width:120px;line-height:0.8;}
+    .leaderItem .date {font-size:90%;line-height:0.8;float:right;width:40px;}
+            
+    .textOverlay {
+        /*padding:10px 15px;*/
+        color:#fff;
+        z-index:10000;
+        font-weight:bold;
+        /*display:inline;*/
+    }
+    .roundedCorners {
+        -moz-border-radius: 10px; /* FF1+ */
+        -webkit-border-radius: 10px; /* Saf3+, Chrome */
+        border-radius: 10px; /* Opera 10.5, IE 9 */
+    }
+    .transparent {
+        opacity: .85; /* Standard: FF gt 1.5, Opera, Safari */
+        filter: alpha(opacity=85); /* IE lt 8 */
+        -ms-filter: "alpha(opacity=75)"; /* IE 8 */
+        -khtml-opacity: .85; /* Safari 1.x */
+        -moz-opacity: .85; /* FF lt 1.5, Netscape */
+    }
+    #timer {
+        position: relative;
+        z-index: 20000;
+        top: 280px; 
+        font-family: "avangid_-webfont", arial, sans-serif;
+        font-weight: bolder;
+        left: 230px;
+    }
+    .stroke-transparent {
+        text-shadow: 3px 3px 3px rgba(0,0,0, 1);
+        font-size: 330%;
+        z-index: 21000;
+        left: -40px;
+        bottom: -60px;
+        position:absolute;
+    }
+    .fuzztext {
+        color: transparent;
+        text-shadow: 0 0 1px rgba(0,0,0, .5);
+        font-size: 400%;
+        position: absolute;
+        left: -45px;
+        bottom: -70px;
+        z-index: 20000;
+    }
+    /**PLAY SCREENS**/
+    #play-again {
+        display: none;
+        position: relative;
+        width: 280px;
+        height: 390px;
+        z-index: 30000;
+        background: url("images/football/41024.png") no-repeat;
+        background-size: 100% 100%;
+        font-size: 110%;
+        text-align: center;
+    }
+    #how-to {
+        /*display: none;*/
+        position: relative;
+        width: 280px;
+        height: 390px;
+        z-index: 30000;
+        background: url("images/football/41024.png") no-repeat;
+        background-size: 100% 100%;
+        font-size: 110%;
+        text-align: left;
+    }
+    #inner {   
+        padding: 2em;
+        text-transform: uppercase;
+        line-height: 1.2em;
+    }
+    #inner ol {
+        -webkit-margin-after: .1em;
+        -webkit-padding-start: 25px;
+    }
+    #finger {
+        position: relative;
+        float: right;
+        bottom: 4em;
+        left: 1em;
+    }
+    #start-it {
+        text-align:center;
+    }
+    #play, #start {
+        cursor: pointer;
+    }
+    #play {
+        margin-top: 1.5em;
+    }
+        
+    /**COLLAPSED**/
+        
+    #hc_richmedia .hc_closebtn img {
+        width: 60%;
+    }
+    #collapsed-bg {
+        height: 50px;
+        width: 280px;
+        background-size: 100% 100%;
+        position:absolute;
+        /*background-image: url("http://a.aug.me/augmeimg/41000/40668.png");*/
+        background-color: #181819;
+    }
+    .collapsed {
+        height: 50px;
+        width: 280px;
+        background-size: 100% 100%;
+        position:absolute;
+    }
+    #frame-01 {
+        background-image: url("images/football/41025.png");
+    }
+    #frame-02 {
+        background-image: url("images/football/41026.png");
+        display:none;
+    }
+    #frame-03 {
+        background-image: url("images/football/41027.png");
+        display:none;
+    }
+    #pot {
+        position: absolute;
+        z-index: 10;
+        float: right;
+        color: #5bade7;
+        right: 35px;
+        top: 15px;
+        font-size: 60%;
+        font-weight: bold;
+        font-family: 'avangid_-webfont', arial, sans-serif;
+        display: none;
+        line-height: 1.2em;
+    }
+    #potluck {
+        font-size: 290%;
+    }
+    #pot sup {
+        font-size: 110%;
+        position: relative;
+        top: -6px;
+    }
+    .mill {
+        margin-left: 4px;
+    }
+    #frame-04 {
+        background-image: url("images/football/41029.png");
+        display:none;
+    }
+
+	</style>
+	
+	<div class="hc_initial_view">		
+		<a href="#" id="hc_expand" onclick="jQuery.hc_rm.expand(event); return false;">	
+            <div id="collapsed-bg">
+                <div id="frame-04" class="collapsed"></div>
+                <div id="frame-03" class="collapsed"></div>
+                 <div id="frame-02" class="collapsed"></div>
+                <div id="frame-01" class="collapsed"></div> 
+                <div id="pot"><sup>$</sup><span id="potluck">000</span><br/><span class="mill">MILLION</span></div>
+            </div>
+		</a>	
+	</div><!-- end initial view content -->
+	
+	<div class="hc_content" id="hc_content" style="display:none;">
+	
+		<div class="hc_closebtn" id="hc_closebtn" style="display:none;" onclick="jQuery.hc_rm.collapse(event); return false;">
+			<img src="images/football/40596.png" />
+		</div>	
+		
+		<div id="wrapper">       
+            <div id="header">
+                <div id="logo">
+                    <img src="images/football/40569.png" width="97" alt="MegaMillions" /><br/>
+                    <span id="tdtext">TOUCHDOWNS - <span id="touchdowns">0</span></span>
+                </div>
+                <div id="titles"><span class="jackpot">TODAY'S JACKPOT</span><h1><sup>$</sup><span id="jackpot">000</span></h1><div class="millions">MILLION</span></div></div>
+                <div style="float: none; clear: both;"></div>
+                
+                <div class="disclaim">Overall odds are 1 in 14.7. Must be 18 or older to purchase. Visit walottery.com for details.</div>
+            </div>
+            <div id="intro">
+                <div class="inner">
+                    <p>Now that you know the jackpot, imagine running your own professional football team. Call the shots. Make the plays. Lead your team to victory.</p>
+                </div>
+            </div>
+            <div id="screen">
+                <canvas id="canvas-uuid-1" width="280" height="380" style="cursor: default; "></canvas>
+            </div>
+            <div id="message" class="textOverlay"></div>
+            <div id="timer"><span id="clock" class="stroke-transparent">:00</span><span id="clockshadow" class="fuzztext">:00</span></div>
+            <div id="play-again">
+                <div id="inner">
+                    <p>Congrats, You&rsquo;ve shown you&rsquo;re worthy of your owner status &mdash; and you now know todays high jackpot. Now just imagine all that you could do with all those winnings. Like buy your own team, for real.</p>
+                    <img src="images/football/40573.png" height="46" width="200" id="play" alt="Play" />
+                </div>
+            </div>
+            <div id="how-to">
+                <div id="inner">
+                    <h2>How to play</h2>
+                    <ol>
+                        <li><span class="tap-to">Tap Left, Right or above to make sure your player gets to the end zone!</span><br/><br/><img src="images/football/41034.png" width="30" id="finger"/></li>
+                        <li>Watch out for the DEfense!<br/><br/></li>
+                        <li>30 seconds on the clock!<br/><br/></li>
+                    </ol>
+                    <div id="start-it"><img src="images/football/40572.png" height="48" width="200" id="start" alt="Start" /></div>
+                </div>
+            </div>
+        </div>
+		
+	</div><!-- end reveal content -->
+
+	<script type="text/javascript">
+		
+		/* DO NOT USE slashes for comments. */
+		/* use .toggle to reveal from left to right, down */
+		/* use .slideToggle to reveal from top to bottom */
+		/* any closing html tags must have the forward slash escaped,e.g. <\/div> */
+	
+		(function ($) {	
+            
+            console.log("test 51");
+            var imageBaseName = ["images/football/46504.png", "images/football/41020.png", "images/football/41021.png", "images/football/41022.png", "images/football/41023.png", "images/football/41024.png", "images/football/41025.png", "images/football/41026.png", "images/football/41027.png", "images/football/41029.png", "images/football/40596.png", "images/football/40569.png", "images/football/40573.png", "images/football/41034.png", "images/football/40572.png", "images/football/46506.png", "images/football/41030.png", "images/football/41032.png"];
+
+			function preloadBasic(e) {
+				var t = 0;
+				var n = [];
+				for (t = 0; t < e.length; t++) {
+					n[t] = new Image;
+					n[t].src = e[t]
+				}
+                console.log("completed");
+                $(".demo_ad", window.parent.document).removeClass("poof");
+                $(".ad_frame", window.parent.document).removeClass("poof");
+            	$(".loader", window.parent.document).addClass("off");
+			}
+
+			preloadBasic(imageBaseName);
+			
+			var fifheight;
+					
+			$.hc_rm = {
+				getQP: function (p) {
+					if(window.location && typeof window.location.search === "string") {
+						var qArray = window.location.search.substr(1).split("&"),qParam,i;
+						for(i=0; i<qArray.length; i++) {
+							qParam = qArray[i].split("=");
+							if(qParam.length === 2 && qParam[0] === p) {
+								return unescape(qParam[1]);
+							}
+						}
+					}
+					return false;
+				},
+				/*getSQP: function(p) {
+					/*var scriptSrc = $("script[src*='as.aug.me']").attr('src');*/
+                    //var scriptSrc = "";
+					//var tmp = scriptSrc.split("?");
+                    /*var tmp = "";
+					if(tmp.length > 1) {
+						var qArray = tmp[1].split("&"),qParam,i;
+						for(i=0; i<qArray.length; i++) {
+							qParam = qArray[i].split("=");
+							if(qParam.length === 2 && qParam[0] === p) {
+								return unescape(qParam[1]);
+							}
+						}
+					}
+					return false;
+				},*/
+				expand: function (e) {				
+					if (!e) { e = window.event; }
+					e.cancelBubble = true;
+                    
+                    if (!$(".back_btn", window.parent.document).hasClass("cat")) {
+      					$(".back_btn", window.parent.document).fadeOut();
+      				}
+                    
+                    
+					if (e.stopPropagation) e.stopPropagation();	
+					/* FIF support */
+					if(window.inDapIF === true) {
+						$("iframe",parent.document).each(function(iel, el){
+							if(el.contentWindow === window) {
+								fifheight = $(el).css("height");
+								$(el).css("height","300px");
+								return false;
+							}
+						});
+					}				
+					
+					/*$("#endlink").attr('href', 'http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=tf&c=20&mc=click&pli=7361325&PluID=0&ord='+new Date().getTime()+'&mb=1&ck=1&on=<operator>');*/
+					
+					/* mraid function call */
+					if(typeof mraid !== "undefined") {
+						mraid.useCustomClose(true);
+						mraid.expand();
+					}					
+					/* animations for expand */
+					$("#hc_richmedia .hc_initial_view").hide();
+					$("#hc_richmedia .hc_content").show();
+					$("#hc_richmedia .hc_closebtn").show();
+				
+					
+					/* Hip expansion tracking */				
+      /*$("#hc_richmedia").append('<img src="#trk:expansion#?cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');	*/
+                    
+                    /* dwell time */
+                    var seconds = 0;
+            
+                    setInterval( function() {dwellTime()}, 10000);
+                    
+                    function dwellTime () {    
+      /*var i = new Image();
+                        
+                        if (seconds < 60) {
+                            seconds = seconds + 10;
+                            i.src ='#trk:dwell_'+seconds+'#?cb='+new Date().getTime();
+      }      */
+                    };
+					
+					/* 3rd party expansion tracker */
+     				//if(this.getSQP('exp') !== false) {
+      /*$("#hc_richmedia").append('<img src="'+decodeURIComponent(this.getSQP('exp'))+'&cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');*/
+     				//}
+     								
+					return false;
+				},
+				collapse: function(e) {
+                    if (!e) { e = window.event; }
+					e.cancelBubble = true;
+                    
+                    $(".back_btn", window.parent.document).fadeIn();
+                    
+					if (e.stopPropagation) e.stopPropagation();	
+					/* FIF support */
+					if(window.inDapIF === true) {
+						$("iframe",parent.document).each(function(iel, el){
+							if(el.contentWindow === window) {
+								$(el).css("height",fifheight);
+								return false;
+							}
+						});
+					}				
+					/* mraid function call */
+					if(typeof mraid !== "undefined") {
+						mraid.close();
+					}					
+					/* animations for collapse */
+					$("#hc_richmedia .hc_initial_view").show();
+					$("#hc_richmedia .hc_content").hide();
+					$("#hc_richmedia .hc_closebtn").hide();					
+      /*$("#hc_richmedia").append('<img src="#trk:collapse#?cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');		*/	
+                    
+					return false;													
+				},
+				engage: function(e) {
+					if (!e) { e = window.event; }
+					e.cancelBubble = true;
+					if (e.stopPropagation) e.stopPropagation();
+      /*$("#hc_richmedia").append('<img src="#trk:engage#?cb='+new Date().getTime()+'" style="position:absolute;height:1px;width:1px;" />');*/
+					return false;
+				}
+				
+			};
+			
+			
+		}(jQuery));
+		
+		/* Add mraid lister */
+		if(typeof mraid !== "undefined") {
+			mraid.addEventListener("stateChange", handleStateChanges);
+		}
+		
+		/* Mraid Handle State Change */
+		function handleStateChanges() {
+
+			switch(mraid.getState()) {
+				case "expanded":
+					jQuery.hc_rm.expand();
+					break;
+				case "default":
+					jQuery.hc_rm.collapse();
+					break;
+			}
+			
+		}
+		
+		$(document).ready(function() {
+            
+            /*impression tracking*/
+      /* var i = new Image();
+      i.src = '#trk:WA-Lottery-MM-View#?cb='+new Date().getTime();*/
+            
+            slideshow();
+            
+            function slideshow() {
+               
+                var index=0;
+                
+                $("#frame-01").show();
+                $("#frame-02").hide();
+                $("#pot").hide();
+                $("#frame-03").hide();
+                $("#frame-04").hide();
+                
+                loop();
+
+                
+                function loop() {
+                    
+                    setInterval ( function () {
+                        
+                        switch (index) {
+                            case 1:
+                                $("#frame-04").delay(1000).fadeOut(600);
+                                $("#frame-01").delay(1000).fadeIn(600);
+                                $("#frame-02").hide();
+                                $("#pot").hide();
+                                $("#frame-03").hide();
+                                index++;
+                                break;
+                            case 2:
+                                $("#frame-01").delay(1000).fadeOut(600);
+                                $("#frame-02").delay(1000).fadeIn(600);
+                                $("#pot").hide();
+                                $("#frame-03").hide();
+                                $("#frame-04").hide();
+                                index++;
+                                break;
+                            case 3:
+                                $("#frame-02").delay(1000).fadeOut(600);
+                                $("#frame-03").delay(1000).fadeIn(600);
+                                $("#pot").delay(1000).fadeIn(600);
+                                $("#frame-01").hide();
+                                $("#frame-04").hide();
+                                index++;
+                                break;
+                            case 4:
+                                $("#frame-03").delay(1000).fadeOut(600);
+                                $("#pot").delay(1000).fadeOut(600);
+                                $("#frame-04").delay(1000).fadeIn(600);
+                                $("#frame-02").hide();
+                                $("#frame-01").hide();
+                                index++;
+                                break;
+                            default:
+                                $("#frame-01").delay(50).fadeOut(600);
+                                $("#frame-02").delay(50).fadeIn(600);
+                                $("#frame-04").hide();
+                                $("#frame-03").hide();
+                                $("#pot").hide();
+                                index = 3;
+                                break;
+                        }
+                        
+                        if (index > 4) {
+                            index = 1;
+                        }
+                        
+                    }, 3000);
+                }
+                
+                
+            };
+            
+             $("#screen").css("display", "none");
+                
+                $("#start").on("touchstart click", function() {
+                
+      /*var i = new Image();
+      i.src = '#trk:WA-Lottery-MM-Start-Game#?cb='+new Date().getTime();*/
+                    $("#how-to").css("display", "none");
+                    $("#screen").css("display", "block");
+                    $("#header").css("display", "block");
+                    $("#intro").css("display", "none");
+                    $("#header").addClass("gameplay");
+                    init();
+                
+                });
+                
+                $("#play").on("touchstart click", function() {
+                
+      /*var i = new Image();
+      i.src = '#trk:WA-Lottery-MM-Play-Again#?cb='+new Date().getTime();*/
+                    $("#play-again").css("display", "none");
+                    $("#tdtext").show();
+                    $(".disclaim").css("bottom", "0");
+                    $("#header").addClass("gameplay");
+                    init();
+                });
+                
+                $.ajax({
+                    url: 'http://services.walottery.com/Lottery.svc/getMMJackpot',
+                    dataType: 'json',
+                    success: function(dataWeGotViaJson){
+                        var today = dataWeGotViaJson.d;
+                        var str = "";
+                        str = today.toString();
+                        if (str.indexOf(".0") != -1) {
+                            today = Math.ceil(today);
+                        }
+                        if (today > 999) {
+                           $("#potluck").css("font-size", "80%").html(today);
+                            $("#jackpot").css("font-size", "80%").html(today);
+                        } else {
+                            $("#potluck").html(today);
+                            $("#jackpot").html(today);
+                        }
+                    }
+                });
+            
+			$(".hc_ci").bind("click",function(e){
+				e.preventDefault();
+				e.stopPropagation();
+	
+				var label = $(this).data("trackinglabel");
+				var url = $(this).attr("href");
+				
+				var i = new Image();
+	
+				i.onload = function(){
+					window.location = url;
+				};
+
+				i.src = '#trk:'+label+'#?cb='+new Date().getTime();
+			});
+			
+		});
+	</script>
+    
+    <!--<script type="text/javascript" src="scripts/cake.js"></script>
+    <script type="text/javascript" src="scripts/lab_utils.js"></script>
+    <script type="text/javascript" src="scripts/football-phone.js"></script>
+    <script type="text/javascript" language="javascript" src="scripts/StompJms.js"></script>-->
+    <script type="text/javascript" src="scripts/football/41035.js"></script>
+    <script type="text/javascript" src="scripts/football/41036.js"></script>	
+    <script type="text/javascript" src="scripts/football/46508.js"></script>
+    <script type="text/javascript" src="scripts/football/41038.js"></script>
+	
+</div><!-- end required wrapper -->
